@@ -1,0 +1,20 @@
+apiVersion : apps
+kind: Deployment
+metadata:
+  name : app-deployment
+  labels:
+    app : tom
+spec:
+  template:
+    metadata:
+      labels:
+        app : tom
+    spec:
+      containers:
+        - name: app
+          image: devtechieops/app:2.0
+          ports:
+            - containerPort: 8080
+  selector:
+    matchLabels:
+      app : tom

@@ -1,0 +1,20 @@
+apiVersion : apps
+kind: Deployment
+metadata:
+  name : fitcento-deployment
+  labels:
+    app : fitcento
+spec:
+  template:
+    metadata:
+      labels:
+        app : fitcento
+    spec:
+      containers:
+        - name: fitcento
+          image: devtechieops/fitcento:2.0
+          ports:
+            - containerPort: 80
+  selector:
+    matchLabels:
+      app : fitcento
